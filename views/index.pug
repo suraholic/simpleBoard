@@ -18,11 +18,9 @@ html
             th 작성자
             th 작성일
         tbody
-          tr  
-            td 1
-            td 테스트
-            td 테스터
-            td 2017-08-31
+        tr
+          for item in data
+            td #{item}
 
     script(src='/static/script.js')
     script.
