@@ -18,10 +18,25 @@ a:link, a:visited {
 }
 
 input[type="button"] { cursor: pointer;}
-.warp { width: 90%; margin: 0;}
+.warp { width: 100%; margin: 0;}
+.contents {
+    margin: 30px 30px;
+    width: 90%; 
+    border: 1px solid orange; 
+    padding: 20px 20px 20px 20px
+}
 
-table { border-collapse:collapse; }
+h1 { line-height: 80px;}
+.btnArea {
+  margin-top: 10px;
+  height: 50px;
+}
+.btnArea input { width: 80px; height: 30px;}
+table { border-collapse:collapse; width: 700px;}
 table, tr, td { 
   padding: 10px 10px 10px 10px;
   border: 1px solid silver
 }
+
+input text {width: 200px;}
+textarea {rows: 10; cols:20}

@@ -18,6 +18,7 @@
   "homepage": "https://github.com/suraholic/simpleBoard#readme",
   "dependencies": {
     "express": "^4.15.4",
+    "lowdb": "^0.17.2",
     "path": "^0.12.7",
     "pug": "^2.0.0-rc.3"
   }
