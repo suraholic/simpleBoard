@@ -18,9 +18,12 @@ html
             th 작성자
             th 작성일
         tbody
-        tr
-          for item in data
-            td #{item}
+        - for (let i=0; i<data.length; i++)
+          tr
+            td #{data[i].id}
+            td #{data[i].title}
+            td #{data[i].auth}
+            td #{data[i].date}
 
     script(src='/static/script.js')
     script.

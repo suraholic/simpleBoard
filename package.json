@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/suraholic/simpleBoard#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "lowdb": "^0.17.2",
     "path": "^0.12.7",
