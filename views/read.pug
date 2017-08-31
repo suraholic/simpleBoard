@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title Simple Board
+    link(rel='stylesheet', href='/static/style.css')
+    
+  body
+    div.contents
+      h1  Simple Board - 글 보기
+        
+      div.table
+          table 
+            tbody
+              tr  
+                td(colspan=2) 
+                  span 제목 : #{matchDB.title}
+              tr 
+                td 
+                  span 작성자 : #{matchDB.auth} 
+                td
+                  span 작성일 : #{matchDB.date}
+              tr  
+                td(colspan=2) #{matchDB.cont}
+      
+      div.btnArea 
+         input(type='button', value='목록보기', class='listBtn')
+      
+    script(src='/static/script.js')
+    script.
+      callRead();   

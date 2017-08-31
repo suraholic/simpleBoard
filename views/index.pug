@@ -19,9 +19,10 @@ html
             th 작성일
         tbody
         - for (let i=0; i<data.length; i++)
-          tr
+         tr
             td #{data[i].id}
-            td #{data[i].title}
+            td 
+              a(href="/read/" + data[i].id) #{data[i].title}
             td #{data[i].auth}
             td #{data[i].date}
 

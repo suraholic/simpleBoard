@@ -24,6 +24,12 @@ app.get('/write', (req,res)=>{
   res.render('write')
 })
 
+app.get('/read/:id', (req,res) => {
+  const id = req.params.id
+  const matchDB = [...data].find(item=> item.id == id)
+  res.render('read', {matchDB})
+})
+
 app.post('/iProc', bodyParserMiddleware, (req,res)=>{
   let idx
   if(!data.length){

@@ -33,3 +33,9 @@ const callWrite = function(){
   })
 }
 
+const callRead = function(){
+  const listBtn = document.getElementsByClassName('listBtn')[0]
+  listBtn.addEventListener('click',()=>{ location.href = '/' })
+
+}
+
