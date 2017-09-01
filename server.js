@@ -17,13 +17,9 @@ app.set('views', './views');
 app.use('/static', express.static('public'))
 app.locals.pretty = true;
 
-app.get('/', (req,res) => {
-  res.render('index',{data} )
-})
-
-app.get('/write', (req,res)=>{
-  res.render('write')
-})
+app.get('/', (req,res) => { res.render('index',{data} )})
+app.get('/write', (req,res)=>{ res.render('write')})
+app.get('/admin', (req,res)=>{ res.render('admin', {data} )})
 
 app.get('/read/:id', (req,res) => {
   const id = req.params.id
@@ -41,6 +37,14 @@ app.get('/read/:id', (req,res) => {
   
 })
 
+app.get('/dProc/:id',(req,res)=>{
+  const idx = req.params.id
+  db.get('board').remove({id:parseInt(idx)}).write()
+  db.get('reply').remove({oid:idx}).write()
+ 
+  res.redirect('/admin')
+})
+
 app.post('/iProc', bodyParserMiddleware, (req,res)=>{
   let idx
   if(!data.length){ idx = 1 } else {
@@ -55,8 +59,7 @@ app.post('/iProc', bodyParserMiddleware, (req,res)=>{
     date: req.body.date
   }).write()
 
-  res.redirect('/')
- 
+  res.redirect('/') 
 })
 
 app.post('/rProc', bodyParserMiddleware, (req, res) => {
@@ -78,6 +81,8 @@ app.post('/rProc', bodyParserMiddleware, (req, res) => {
   res.redirect('/read/'+oidx)
 })
 
+
+
 app.listen(3000, ()=>{
-  console.log('server start...')
+  console.log('simple board server start...')
 })

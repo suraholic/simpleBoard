@@ -1,8 +1,8 @@
 const callIndex = function(){
-  const btn = document.querySelector('input[type="button"')
-  btn.addEventListener('click', function(){
-    location.href = '/write'
-  })
+  const btn = document.querySelectorAll('input[type="button"')
+  
+  btn[0].addEventListener('click', ()=>{ location.href = '/write' })
+  btn[1].addEventListener('click', ()=> { location.href = '/admin'})
 }
 
 const callWrite = function(){
@@ -47,6 +47,18 @@ const callRead = function(){
   })
   
 
+}
+
+const callAdmin = function(){
+  const btn = document.querySelector('input[type="button"')
+  btn.addEventListener('click',()=>{ location.href = '/'})
+}
+
+const delProc = function(obj){
+  const idx = obj.getAttribute('data-value')
+  if(confirm('정말 삭제하시겠습니까?\n댓글도 함께 삭제됩니다.')){
+    location.href = '/dProc/'+idx
+  }
 }
 
 const getDate = function(){

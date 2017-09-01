@@ -21,7 +21,7 @@ html
                 td
                   span 작성일 : #{board.date}
               tr  
-                td(colspan=2) #{board.cont}
+                td(colspan=2).conts #{board.cont}
       
          
       div.table.replay
@@ -33,7 +33,7 @@ html
                 td 
                   span 작성자 : #{reply[i].auth} ( #{reply[i].date} )
               tr
-                td.re #{reply[i].cont}
+                td.re.conts #{reply[i].cont}
 
       div.replayFOrm
         h2 댓글작성 
