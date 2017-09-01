@@ -14,16 +14,45 @@ html
             tbody
               tr  
                 td(colspan=2) 
-                  span 제목 : #{matchDB.title}
+                  span 제목 : #{board.title}
               tr 
                 td 
-                  span 작성자 : #{matchDB.auth} 
+                  span 작성자 : #{board.auth} 
                 td
-                  span 작성일 : #{matchDB.date}
+                  span 작성일 : #{board.date}
               tr  
-                td(colspan=2) #{matchDB.cont}
+                td(colspan=2) #{board.cont}
       
+         
+      div.table.replay
+        h2 댓글 리스트
+        table
+          tbody
+          - for (let i=0; i<reply.length; i++)
+              tr
+                td 
+                  span 작성자 : #{reply[i].auth} ( #{reply[i].date} )
+              tr
+                td.re #{reply[i].cont}
+
+      div.replayFOrm
+        h2 댓글작성 
+        form(name='refrm', id='refrm', method='post', action='/rProc')
+          input(type='hidden', name='oidx', id='oidx', value=board.id)
+          input(type='hidden', name='date', id='date')
+
+          table 
+            tbody
+              tr 
+                td
+                  input(type='text' name='auth', id='auth', placeholder='작성자')
+              tr  
+                td
+                  textarea(name='cont', id='cont', rows=5, cols=100)
+
+
       div.btnArea 
+         input(type='button', value='댓글작성', class='repleBtn')
          input(type='button', value='목록보기', class='listBtn')
       
     script(src='/static/script.js')

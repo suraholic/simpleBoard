@@ -13,29 +13,49 @@ const callWrite = function(){
   const auth    = document.getElementById('auth')
   const cont    = document.getElementById('cont')
   const date    = document.getElementById('date')
-  
-  const today = new Date()
-  let dd = today.getDate()
-  let mm = today.getMonth()+1
-  let yy = today.getFullYear()
-  if(mm<10) { mm = '0'+mm }
-  if(dd<!0) { dd = '0'+dd }
-    
+     
   listBtn.addEventListener('click',()=>{ location.href = '/' })
   sendBtn.addEventListener('click', ()=>{
     if(!title.value){ alert("제목을 입력하세요"); title.focus(); return false}
     if(!auth.value){ alert("작성자를 입력하세요"); auth.focus(); return false}
     if(!cont.value){ alert("내용을 입력하세요"); cont.focus(); return false}
 
-    date.value = yy + '-' + mm + '-' + dd
-    frm.submit();  
+    date.value = getDate()
+    frm.submit()
 
   })
 }
 
 const callRead = function(){
+  const repleBtn = document.getElementsByClassName('repleBtn')[0]
   const listBtn = document.getElementsByClassName('listBtn')[0]
+
   listBtn.addEventListener('click',()=>{ location.href = '/' })
+  repleBtn.addEventListener('click', ()=>{
+    const frm     = document.getElementById('refrm')
+    const auth    = document.getElementById('auth')
+    const cont    = document.getElementById('cont')
+    const date    = document.getElementById('date')
+
+    if(!auth.value){ alert("작성자를 입력하세요"); auth.focus(); return false}
+    if(!cont.value){ alert("내용을 입력하세요"); cont.focus(); return false}
+
+    date.value = getDate()
+    frm.submit()
+
+
+  })
+  
 
 }
 
+const getDate = function(){
+  const today = new Date()
+  let dd = today.getDate()
+  let mm = today.getMonth()+1
+  let yy = today.getFullYear()
+  if(mm<10) { mm = '0'+mm }
+  if(dd<10) { dd = '0'+dd }
+
+  return yy + '-' + mm + '-' + dd
+}

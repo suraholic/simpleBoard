@@ -14,7 +14,7 @@ html
         thead 
           tr
             th NO.
-            th 제목
+            th 제목 (댓글 수)
             th 작성자
             th 작성일
         tbody
@@ -22,7 +22,7 @@ html
          tr
             td #{data[i].id}
             td 
-              a(href="/read/" + data[i].id) #{data[i].title}
+              a(href="/read/" + data[i].id) #{data[i].title} 
             td #{data[i].auth}
             td #{data[i].date}
 

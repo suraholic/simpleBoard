@@ -38,5 +38,8 @@ table, th, tr, td {
   border: 1px solid silver
 }
 
+.replay, .replayFOrm { margin-top: 20px;}
+.replay h2 { line-height: 40px;}
+.re { padding-left: 20px;}
 input text {width: 200px;}
 textarea {rows: 10; cols:20}
