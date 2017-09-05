@@ -1,8 +1,8 @@
 const callIndex = function(){
   const btn = document.querySelectorAll('input[type="button"')
-  
+
   btn[0].addEventListener('click', ()=>{ location.href = '/write' })
-  btn[1].addEventListener('click', ()=> { location.href = '/admin'})
+  btn[1].addEventListener('click', ()=> { location.href = '/adlogin'})
 }
 
 const callWrite = function(){
@@ -13,7 +13,7 @@ const callWrite = function(){
   const auth    = document.getElementById('auth')
   const cont    = document.getElementById('cont')
   const date    = document.getElementById('date')
-     
+
   listBtn.addEventListener('click',()=>{ location.href = '/' })
   sendBtn.addEventListener('click', ()=>{
     if(!title.value){ alert("제목을 입력하세요"); title.focus(); return false}
@@ -45,7 +45,7 @@ const callRead = function(){
 
 
   })
-  
+
 
 }
 
@@ -70,4 +70,16 @@ const getDate = function(){
   if(dd<10) { dd = '0'+dd }
 
   return yy + '-' + mm + '-' + dd
+}
+
+const callAdminLogin = function(){
+  const btn = document.getElementById('loginBtn')
+  btn.addEventListener('click', ()=>{
+    const adminID = document.getElementById('adminID')
+    const adminPWD = document.getElementById('adminPWD')
+    if(adminID.value===''){ alert('관리자 아이디를 입력하세요'); adminID.focus(); return false;}
+    if(adminPWD.value===''){ alert('관리자 비빌번호를 입력하세요'); adminPWD.focus(); return false;}
+
+    document.getElementById('loginFrm').submit();
+  })
 }
